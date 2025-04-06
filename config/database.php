@@ -112,17 +112,26 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
        
-        'mongodb' => [
+            'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => 'mongodb+srv//myUser:myPass123@sample.host:27017/',
-            'database' => 'FreeCourses',
-            'options' => [
-              'maxPoolSize' => 20,
-              'w' => 'majority',
-                        ],
-        'driver_options' => [
-            'serverApi' => 1,],
-    ],
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '27017'),
+            'database' => env('DB_DATABASE', 'FreeCourses'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
+            'options'  => [
+                'database' => env('DB_AUTHENTICATION_DATABASE', 'admin')]
+                // 'driver' => 'mongodb',
+                // 'dsn' => env('DB_URI'), // Corrected URI
+                // 'database' => 'FreeCourses',
+                // 'options' => [
+                //     'maxPoolSize' => 20,
+                //     'w' => 'majority',
+                // ],
+                // 'driver_options' => [
+                //     'serverApi' => 1,
+                // ],
+            ],
 
     ],
 
